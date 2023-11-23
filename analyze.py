@@ -114,50 +114,50 @@ if __name__ == "__main__":
         }
     }
     
-    dataSets = {'loaded': load_can('unloaded.log', dbc), 'unloaded': load_can('loaded.log', dbc)}
+    dataSets = {'loaded': load_can('logs/unloaded.log', dbc), 'unloaded': load_can('logs/loaded.log', dbc)}
 
-    # plot_single_scatter('statusword', 'Status', 'unit', dataSets)
-    # plot_single_scatter('Actual Torque', 'Torque', 'unit', dataSets)
-    # plot_single_scatter('Control Effort', 'Torque', 'unit', dataSets)
-    # plot_single_scatter('Desired Position', 'Position', 'unit', dataSets)
-    # plot_single_scatter('Actual Position', 'Position', 'unit', dataSets)
-    # plot_single_scatter('Desired Speed', 'Speed', 'unit/s', dataSets)
-    # plot_single_scatter('Actual Speed', 'Speed', 'unit/s', dataSets)
+    plot_single_scatter('statusword', 'Status', 'unit', dataSets)
+    plot_single_scatter('Actual Torque', 'Torque', 'unit', dataSets)
+    plot_single_scatter('Control Effort', 'Torque', 'unit', dataSets)
+    plot_single_scatter('Desired Position', 'Position', 'unit', dataSets)
+    plot_single_scatter('Actual Position', 'Position', 'unit', dataSets)
+    plot_single_scatter('Desired Speed', 'Speed', 'unit/s', dataSets)
+    plot_single_scatter('Actual Speed', 'Speed', 'unit/s', dataSets)
 
-    # combined_plot_per_node(['Actual Torque', 'Control Effort'], [1, 2, 3, 4], 'Effort', 'Normalized', dataSets)
-    # combined_plot_per_node(['Actual Speed', 'Desired Speed'], [1, 2, 3], 'Speed', 'Unit', dataSets)
-    # combined_plot_per_node(['Actual Position', 'Desired Position'], [1, 2, 3], 'Position', 'Unit', dataSets)
+    combined_plot_per_node(['Actual Torque', 'Control Effort'], [1, 2, 3, 4], 'Effort', 'Normalized', dataSets)
+    combined_plot_per_node(['Actual Speed', 'Desired Speed'], [1, 2, 3], 'Speed', 'Unit', dataSets)
+    combined_plot_per_node(['Actual Position', 'Desired Position'], [1, 2, 3], 'Position', 'Unit', dataSets)
     
-    # combined_plot_per_value('Actual Position', [1, 3], 'Position', 'Unit', dataSets)
-    # combined_plot_per_value('Actual Speed', [1, 3], 'Speed', 'Unit', dataSets)
-    # combined_plot_per_value('Actual Torque', [1, 3], 'Torque', 'Unit', dataSets)
+    combined_plot_per_value('Actual Position', [1, 3], 'Position', 'Unit', dataSets)
+    combined_plot_per_value('Actual Speed', [1, 3], 'Speed', 'Unit', dataSets)
+    combined_plot_per_value('Actual Torque', [1, 3], 'Torque', 'Unit', dataSets)
 
-    # combined_plot_per_value('Desired Position', [1, 3], 'Desired Position', 'Unit', dataSets)
-    # combined_plot_per_value('Desired Speed', [1, 3], 'Desired Speed', 'Unit', dataSets)
-    # combined_plot_per_value('Control Effort', [1, 3], 'Desired Effort', 'Unit', dataSets)
+    combined_plot_per_value('Desired Position', [1, 3], 'Desired Position', 'Unit', dataSets)
+    combined_plot_per_value('Desired Speed', [1, 3], 'Desired Speed', 'Unit', dataSets)
+    combined_plot_per_value('Control Effort', [1, 3], 'Desired Effort', 'Unit', dataSets)
 
     #status analysis
-    # combined_plot_per_value('statusword', [1, 3], 'State change', 'Unit', dataSets)
-    # combined_plot_per_node(['Actual Torque', 'Control Effort', 'statusword'], [1, 2, 3, 4], 'Effort with status', 'Normalized', dataSets)
-    # combined_plot_per_node(['Actual Torque', 'Control Effort', 'statusword'], [1, 2, 3, 4], 'Effort with status', 'Normalized', dataSets)
-    # combined_plot_per_node(['Actual Position', 'Desired Position', 'statusword'], [1, 2, 3], 'Position with Status', 'Normalized', dataSets)
+    combined_plot_per_value('statusword', [1, 3], 'State change', 'Unit', dataSets)
+    combined_plot_per_node(['Actual Torque', 'Control Effort', 'statusword'], [1, 2, 3, 4], 'Effort with status', 'Normalized', dataSets)
+    combined_plot_per_node(['Actual Torque', 'Control Effort', 'statusword'], [1, 2, 3, 4], 'Effort with status', 'Normalized', dataSets)
+    combined_plot_per_node(['Actual Position', 'Desired Position', 'statusword'], [1, 2, 3], 'Position with Status', 'Normalized', dataSets)
     
 
-    # print('Start time unloaded')
-    # print(dataSets['unloaded']['Desired Position'][3][0])
-    # print(dataSets['unloaded']['Desired Position'][1][0])
+    print('Start time unloaded')
+    print(dataSets['unloaded']['Desired Position'][3][0])
+    print(dataSets['unloaded']['Desired Position'][1][0])
     
-    # print('End time unloaded')
-    # print(dataSets['unloaded']['Desired Position'][3][-1])
-    # print(dataSets['unloaded']['Desired Position'][1][-1])
+    print('End time unloaded')
+    print(dataSets['unloaded']['Desired Position'][3][-1])
+    print(dataSets['unloaded']['Desired Position'][1][-1])
 
-    # print('Start time loaded')
-    # print(dataSets['loaded']['Desired Position'][3][0])
-    # print(dataSets['loaded']['Desired Position'][1][0])
+    print('Start time loaded')
+    print(dataSets['loaded']['Desired Position'][3][0])
+    print(dataSets['loaded']['Desired Position'][1][0])
     
-    # print('End time loaded')
-    # print(dataSets['loaded']['Desired Position'][3][-1])
-    # print(dataSets['loaded']['Desired Position'][1][-1])
+    print('End time loaded')
+    print(dataSets['loaded']['Desired Position'][3][-1])
+    print(dataSets['loaded']['Desired Position'][1][-1])
 
     print('Start time unloaded')
     print(dataSets['unloaded']['Actual Position'][3][0])
