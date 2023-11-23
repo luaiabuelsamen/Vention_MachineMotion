@@ -5,7 +5,7 @@ Each node or drive, represents a separate motor. Since we know there are three t
 - Homing
   - Moving or calibrating the motor to specific set point
 - Individual moves
-  - Setting desired final setpoint by following desired speed and position curves for the trajectory and expectin the actual values to match by producing appropriate calculated control and torque efforts
+  - Setting desired final setpoint by following desired speed and position curves for the trajectory and expecting the actual values to match by producing appropriate calculated control and torque efforts
 - Combined moves
   - Combined moves involve 2 or more motors at once 
   - Planned to have each motor start and stop at the same time
@@ -38,7 +38,7 @@ Next, I want to analyze the performace for these modes by answering the followin
 
 For drive 1, everything appears to be as expected. 
 
-For drive 2, we can see there is a lot of noise diviating from a reuqest to remain at rest. There is a lot of jitter. Compared to drive 1 and 3, the values in drive 2 are relatively low (note that we don't actually know the units in can since we don't know the range), this may mean that it is actually behaving as expected with a small margin of error, but it is not possible to tell with the given information.
+For drive 2, we can see there is a lot of noise deviating from a request to remain at rest. There is a lot of jitter. Compared to drive 1 and 3, the values in drive 2 are relatively low (note that we don't actually know the units in can since we don't know the range), this may mean that it is actually behaving as expected with a small margin of error, but it is not possible to tell with the given information.
 
 For drive 3, we begin to actually see that the speeds are beginning to deviate from the desired under load, it is very slight. This can be due to an issue within the motor or an issue with the mode it is used in (ie maybe very high resistance) to check we can compare the control effort and torque in drive 1 and 3.
 
@@ -49,7 +49,7 @@ For drive 3, we begin to actually see that the speeds are beginning to deviate f
 </td>
 </table>
 
-We cans see that the effort is much higher for drive 3 especially when it's loaded. The load could be too high.
+We can see that the effort is much higher for drive 3 especially when it's loaded. The load could be too high.
 
 # Validating Position
 <table>
