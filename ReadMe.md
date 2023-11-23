@@ -1,19 +1,17 @@
 First I have plotted all the raw CAN data for the individual signals plotted separately, per node, and for the loaded/ unloaded cases, that is shown in the end.
 
-Each node or drive, represents a separate motor. Since we know there are three types of moves with the following expectations:
+Each node or drive represents a separate motor. Since we know there are three types of moves with the following expectations:
 
 - Homing
-  - Moving or calibrating the motor to specific set point
+  - Moving or calibrating the motor to a specific set point
 - Individual moves
   - Setting desired final setpoint by following desired speed and position curves for the trajectory and expecting the actual values to match by producing appropriate calculated control and torque efforts
 - Combined moves
   - Combined moves involve 2 or more motors at once 
   - Planned to have each motor start and stop at the same time
-  - Each motor in a combined move is commanded to its own setpoint, like individual moves, aside from being synchronised
+  - Each motor in a combined move is commanded to its own setpoint, like individual moves, aside from being synchronized
 
-Based on that, it appears as though Drive 1 & 3 are being driven as a combined move and drive 2 and 4 seem like they could either be homing individual move. We can use the statusword as a reference, despite not knowing what the decrypted status is.
-
-We see that Drive 2 is set for a close to 0 desired position when the status is 182.5 the whole time. We see for both drive 1 and 3, the status is 55, switches briefly to 182.5 when the position is 0 and goes back to 55 Based on that, we can assume that 182.5 is most likely homing.  Drive 4 seems to also be at 55, indicating a combined move, but it is missing any data about position and velocity so it will be ignored.
+Based on that, it appears as though Drive 1 & 3 are being driven as a combined move and drive 2 and 4 seem like they could either be homing individual moves.
 
 This can be seen in these normalized plots for the timing:
 <table>
@@ -22,7 +20,7 @@ This can be seen in these normalized plots for the timing:
 <td><img src="./combinedfigs/Position with Status_node_3.png"></td>
 </table>
 
-Next, I want to analyze the performace for these modes by answering the following questions:
+Next, I want to analyze the performance of these modes by answering the following questions:
 
 1. Are the motors going at speeds they are expecting during moves?
 2. Are the moves completed properly?
@@ -38,9 +36,9 @@ Next, I want to analyze the performace for these modes by answering the followin
 
 For drive 1, everything appears to be as expected. 
 
-For drive 2, we can see there is a lot of noise deviating from a request to remain at rest. There is a lot of jitter. Compared to drive 1 and 3, the values in drive 2 are relatively low (note that we don't actually know the units in can since we don't know the range), this may mean that it is actually behaving as expected with a small margin of error, but it is not possible to tell with the given information.
+For drive 2, we can see a lot of noise deviating from a request to remain at rest. There is a lot of jitter. Compared to drive 1 and 3, the values in drive 2 are relatively low (note that we don't know the units in can since we don't know the range); this may mean that it is actually behaving as expected with a small margin of error, but it is not possible to tell with the given information.
 
-For drive 3, we begin to actually see that the speeds are beginning to deviate from the desired under load, it is very slight. This can be due to an issue within the motor or an issue with the mode it is used in (ie maybe very high resistance) to check we can compare the control effort and torque in drive 1 and 3.
+For drive 3, we begin to actually see that the speeds are beginning to deviate from the desired under loading, it is very slight. This can be due to an issue within the motor or an issue with the mode it is used in (ie maybe very high resistance) to check, we can compare the control effort and torque in drive 1 and 3.
 
 <table>
 <td><img src="./combinedfigs/Desired Effort_[1, 3].png">
