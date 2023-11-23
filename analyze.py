@@ -31,7 +31,7 @@ def load_can(log, dbc):
                 node = int(pod) - channel
                 if channel in dbc:
                     for range, type in dbc[channel].items():
-                        nibbles = data_hex.split()[range[0]: range[1]]
+                        nibbles = data_hex.split()[range[0]: range[1] + 1]
                         data_point = (timestamp, hex_to_int(''.join(nibbles[::-1]), type['type']))
                         if type['name'] in data:
                             if node in data[type['name']]:
@@ -114,7 +114,7 @@ if __name__ == "__main__":
         }
     }
     
-    dataSets = {'loaded': load_can('logs/unloaded.log', dbc), 'unloaded': load_can('logs/loaded.log', dbc)}
+    dataSets = {'loaded': load_can('logs/loaded.log', dbc), 'unloaded': load_can('logs/unloaded.log', dbc)}
 
     plot_single_scatter('statusword', 'Status', 'unit', dataSets)
     plot_single_scatter('Actual Torque', 'Torque', 'unit', dataSets)
